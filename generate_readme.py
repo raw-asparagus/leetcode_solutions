@@ -26,7 +26,7 @@ for problem_dir in problem_dirs:
     c_solution = next((f for f in os.listdir(problem_dir) if f.endswith('.c')), None)
     
     # Generate markdown links for the solutions, if they exist
-    python_link = generate_markdown_link('Python', os.path.join(problem_dir, python_solution)) if python_solution else ''
+    python_link = generate_markdown_link('Python 3', os.path.join(problem_dir, python_solution)) if python_solution else ''
     c_link = generate_markdown_link('C', os.path.join(problem_dir, c_solution)) if c_solution else ''
 
     row_header_elements = problem_dir.split("-")
