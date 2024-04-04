@@ -6,12 +6,12 @@ int maxDepth(char* s) {
 
     int max_count = 0;  //  Max of count
 
-    for (int i = 0; s[i] != 0; i++) {
+    for (int i = 0; s[i] != 0; i++) {   //  '\0'
         int c = s[i];
 
-        if (c == 40)       //  '('
+        if (c == 40)                    //  '('
             count++;
-        else if (c == 41)  //  ')'
+        else if (c == 41)               //  ')'
             count--;
         
         if (count > max_count)
