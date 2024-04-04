@@ -32,7 +32,7 @@ for problem_dir in problem_dirs:
     row_header_elements = problem_dir.split("-")
     
     # Generate markdown table row
-    table_row = f"| {row_header_elements[0]}. {row_header_elements[1:].join(" ")} | {generate_markdown_link('Readme', readme_path)} | {python_link} | {c_link} |\n"
+    table_row = f"| {row_header_elements[0]}. {" ".join(row_header_elements[1:])} | {generate_markdown_link('Readme', readme_path)} | {python_link} | {c_link} |\n"
     readme_template += table_row
 
 # Write the generated markdown to the README.md file
