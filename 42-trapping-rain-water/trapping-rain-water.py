@@ -6,13 +6,16 @@ class Solution:
         left_max = height[i]
         j = len(height) - 1 #   Right
         right_max = height[j]
+
+        #   Iterates as long as left is left of right
         while i < j:
             #   Right is taller
             if height[i] < height[j]:
                 #   Next left is shorter than previous
                 if height[i] < left_max:
                     acc += left_max - height[i]
-                #   Next left is taller than previous
+                #   Next left is taller than or same
+                #   as previous
                 else:
                     left_max = height[i]
                 
@@ -22,7 +25,8 @@ class Solution:
                 #   Previous right is shorter than next
                 if height[j] < right_max:
                     acc += right_max - height[j]
-                #   Previous right is taller than next
+                #   Previous right is taller than or
+                #   same as next
                 else:
                     right_max = height[j]
                 
