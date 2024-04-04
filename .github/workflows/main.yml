@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Fetch all history for all branches and tags
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -30,16 +32,14 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           
-          # Fetch the newest history
-          git fetch --no-tags --prune --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+          # Ensure the local main branch is up to date
+          git pull --rebase origin main
           
-          # Hard reset to the remote state without losing changes
-          git reset --soft origin/main
-
-          # If there are changes, add and commit them
+          # Stage any changes
           git add README.md
-          COMMIT_MSG="Update README"
-          git commit -m "$COMMIT_MSG" || echo "No changes to commit"
           
-          # Push changes using PAT
+          # Commit changes if there are any
+          git commit -m "Update README" || echo "No changes to commit"
+          
+          # Push the changes using the PAT
           git push --set-upstream https://${{ secrets.TOKEN }}@github.com/${{ github.repository }} main
