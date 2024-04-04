@@ -7,10 +7,10 @@ def generate_markdown_link(label, path):
 # List all directories and files
 entries = os.listdir('.')
 readme_template = "# LeetCode Solutions Repository\n\n" \
-                  "This repository contains my solutions to LeetCode problems in various programming languages.\n\n" \
+                  "This repository contains my solutions to LeetCode problems in C and Python 3.\n\n" \
                   "## Solutions\n\n" \
-                  "| Problem | Readme | Python Solution | C Solution |\n" \
-                  "| ------- | ------ | --------------- | ---------- |\n"
+                  "| Problem | Problem Statement | Python 3 |   C   |\n" \
+                  "| ------- | ----------------- | -------- | ----- |\n"
 
 # Filter out directories that have a numeric prefix (indicative of problem number)
 problem_dirs = [d for d in entries if os.path.isdir(d) and d.split('-')[0].isdigit()]
@@ -28,9 +28,11 @@ for problem_dir in problem_dirs:
     # Generate markdown links for the solutions, if they exist
     python_link = generate_markdown_link('Python', os.path.join(problem_dir, python_solution)) if python_solution else ''
     c_link = generate_markdown_link('C', os.path.join(problem_dir, c_solution)) if c_solution else ''
+
+    row_header_elements = problem_dir.split("-")
     
     # Generate markdown table row
-    table_row = f"| {problem_dir.replace('-', ' ').title()} | {generate_markdown_link('Readme', readme_path)} | {python_link} | {c_link} |\n"
+    table_row = f"| {row_header_elements[0]}. {row_header_elements[1:].join(" ")} | {generate_markdown_link('Readme', readme_path)} | {python_link} | {c_link} |\n"
     readme_template += table_row
 
 # Write the generated markdown to the README.md file
