@@ -4,7 +4,8 @@ class Solution:
     #   num fulfill conditions
     def findIndices(self, nums: List[int], indexDifference: int, valueDifference: int) -> List[int]:
         for i_idx, i_val in enumerate(nums):
-            for j_idx, j_val in enumerate(nums[i_idx + indexDifference:], start = i_idx + indexDifference):
+            lower = i_idx + indexDifference
+            for j_idx, j_val in enumerate(nums[lower:], start = lower):
                 if abs(i_val - j_val) >= valueDifference:
                     return [i_idx, j_idx]
         
