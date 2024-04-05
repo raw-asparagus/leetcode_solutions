@@ -1,8 +1,4 @@
 int maxDepth(char* s) {
-    //  ===========================
-    //  Stack -- Last in, First out
-    //  ===========================
-
     //  Increment/decrement count on '(' / ')',
     //  tracking max in max_count
     int count = 0;
