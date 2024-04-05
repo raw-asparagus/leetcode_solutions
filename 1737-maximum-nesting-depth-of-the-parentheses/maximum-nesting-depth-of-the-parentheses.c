@@ -1,23 +1,19 @@
 int maxDepth(char* s) {
-    //  Accumulator
-    //  - increment when '('
-    //  - decrement when ')'
+    //  ===========================
+    //  Stack -- Last in, First out
+    //  ===========================
+
+    //  Increment/decrement count on '(' / ')',
+    //  tracking max in max_count
     int count = 0;
+    int max_count = count;
 
-    int max_count = 0;  //  Max of count
-
-    for (int i = 0; s[i] != 0; i++) {   //  '\0'
+    for (int i = 0; s[i] != 0; i++) {
         int c = s[i];
 
-        if (c == 40)                    //  '('
-            count++;
-        else if (c == 41)               //  ')'
-            count--;
-        
-        if (count > max_count)
-            //  when 'count' overtakes
-            //  'max_count'
-            max_count++;
+        if (c == 40)
+            max_count < ++count ? max_count = count : 0;
+        else if (c == 41) count--;
     }
 
     return max_count;
