@@ -1,7 +1,7 @@
 char* makeGood(char* s) {
-    //  ===========================
-    //  Stack -- Last in, First out
-    //  ===========================
+    //  =====
+    //  Stack
+    //  =====
 
     //  Pop last and skip next if next-last pair
     //  makes the string bad, else appends next
