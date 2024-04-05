@@ -1,8 +1,4 @@
 class Solution:
-    #   ===========================
-    #   Stack -- Last in, First out
-    #   ===========================
-
     #   Increment/decrement count on '(' / ')',
     #   tracking max in max_count
     def maxDepth(self, s: str) -> int:
