@@ -1,22 +1,19 @@
 class Solution:
-    def maxDepth(self, s: str) -> int:
-        #   Accumulator
-        #   - increment when '('
-        #   - decrement when ')'
-        count = 0
+    #   ===========================
+    #   Stack -- Last in, First out
+    #   ===========================
 
-        max_count = 0   #   Max of count
+    #   Increment/decrement count on '(' / ')',
+    #   tracking max in max_count
+    def maxDepth(self, s: str) -> int:
+        max_count = count = 0
 
         for char in s:
             if char == "(":
                 count += 1
+                max_count = max(count, max_count)
             elif char == ")":
                 count -= 1
-            
-            if count > max_count:
-                #   when 'count' overtakes
-                #   'max_count'
-                max_count += 1
         
         return max_count
         
