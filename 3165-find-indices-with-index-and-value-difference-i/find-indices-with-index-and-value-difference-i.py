@@ -5,9 +5,9 @@ class Solution:
     def findIndices(self, nums: List[int], indexDifference: int, valueDifference: int) -> List[int]:
         for i_idx, i_val in enumerate(nums):
             lower = i_idx + indexDifference
-            for j_idx, j_val in enumerate(nums[lower:], start = lower):
+            for j_idx, j_val in enumerate(nums[lower:]):
                 if abs(i_val - j_val) >= valueDifference:
-                    return [i_idx, j_idx]
+                    return [i_idx, lower + j_idx]
         
         #   Default
         return  [-1, -1]
