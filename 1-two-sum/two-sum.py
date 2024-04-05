@@ -1,7 +1,7 @@
 class Solution:
-    #   =======
-    #   Hashmap
-    #   =======
+    #   ========
+    #   Hash Map
+    #   ========
 
     #   Iterate through nums. Return iterated num
     #   and 1st operand if 1st operand exists in
