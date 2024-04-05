@@ -1,22 +1,18 @@
 class Solution:
+    #   Using the shortest string in strs as
+    #   reference, iterate through every
+    #   character and return on mismatch
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        #   Use first element as reference
-        ref = strs[0]
-
-        #   Base case:  'strs' only has 1 element
+        #   Base case
         if len(strs) == 1:
-            return ref
+            return strs[0]
 
-        #   Checks all prefix combinations in reference
-        for i in range(len(ref)):
-            for i_str in strs[1:]:
-                #   Terminating case if next iterating
-                #   string lacks prefix combination
-                if i_str[:i + 1] != ref[:i + 1]:
-                    #   Returns previous prefix
-                    #   combination
-                    return ref[:i]
+        ref = min(strs, key = len)
 
-        #   Trivial case:  'strs' is homogeneous
+        for idx, val in enumerate(ref):
+            for string in strs:
+                if string[idx] != val:
+                    return ref[:idx]
+
+        #   Terminating case: strs is homogeneous
         return ref
-        
