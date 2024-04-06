@@ -3,9 +3,10 @@ class Solution:
     #   Hash Map
     #   ========
 
-    #   Store every character in s and its map in
-    #   t as a key-value pair in hashmap. Returns
-    #   'False' on mismatched mapping
+    #   Store s's image in t and the inverse t's
+    #   image in s in 2 hashmaps. Returns False
+    #   if a t -> s mapping already exists or
+    #   if there's a mismatched s -> t map
     def isIsomorphic(self, s: str, t: str) -> bool:
         swap = {}
         inverse = {}
@@ -17,6 +18,7 @@ class Solution:
                     inverse[swap[val]] = val
                     continue
                 
+                #   t -> s map already exists
                 return False
             
             if swap[val] != t[idx]:
