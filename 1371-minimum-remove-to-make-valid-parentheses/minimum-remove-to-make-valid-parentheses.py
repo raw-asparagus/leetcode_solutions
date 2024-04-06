@@ -15,11 +15,10 @@ class Solution:
         stack = []
 
         for idx, val in enumerate(s):
-            match val:
-                case ")":
-                    stack.pop() if stack and s[stack[-1]] == "(" else stack.append(idx)
-                case "(":
-                    stack.append(idx)
+            if val == ")":
+                stack.pop() if stack and s[stack[-1]] == "(" else stack.append(idx)
+            elif val == "(":
+                stack.append(idx)
 
         return_str = "".join([ val for idx, val in enumerate(s) if idx not in stack ])
         
