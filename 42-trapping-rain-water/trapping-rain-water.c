@@ -16,15 +16,13 @@ int trap(int* height, int heightSize) {
     int right_max = height[j];
 
     while (i < j) {
-        if (height[i] < height[j]) {
-            if (height[i] < left_max)
-                accum += left_max - height[i++];
-            else left_max = height[i++];
+        if (left_max < right_max) {
+            left_max = left_max > height[++i] ? left_max : height[i];
+            accum += left_max - height[i];
         }
         else {
-            if (height[j] < right_max)
-                accum += right_max - height[j--];
-            else right_max = height[j--];
+            right_max = right_max > height[--j] ? right_max : height[j];
+            accum += right_max - height[j];
         }
     }
 
