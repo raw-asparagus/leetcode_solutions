@@ -12,19 +12,18 @@ class Solution:
         inverse = {}
 
         for idx, val in enumerate(s):
+            image = t[idx]
+            
             if val not in swap:
-                if t[idx] not in inverse:
-                    swap[val] = t[idx]
-                    inverse[swap[val]] = val
+                if image not in inverse:
+                    swap[val] = image
+                    inverse[image] = val
                     continue
                 
                 #   t -> s map already exists
                 return False
             
-            if swap[val] != t[idx]:
+            if swap[val] != image:
                 return False
 
         return True
-            
-
-        
