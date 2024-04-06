@@ -20,7 +20,7 @@ class Solution:
             elif val == "(":
                 stack.append(idx)
 
-        return_str = "".join([ val for idx, val in enumerate(s) if idx not in stack ])
+        return_str = "".join(( s[i] for i in range(len(s)) if i not in stack ))
         
         return return_str     
         
