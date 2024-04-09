@@ -6,11 +6,11 @@ class Solution:
     def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
         elapsed_time = 0
 
-        for cycle in range(tickets[k]):
+        for cycle in range(1, tickets[k] + 1):
             for idx, val in enumerate(tickets):
-                if val > cycle:
+                if val >= cycle:
                     elapsed_time += 1
-                    if idx == k and val == cycle + 1:
+                    if idx == k and val == cycle:
                         return elapsed_time
 
         return 0
