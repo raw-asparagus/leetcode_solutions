@@ -1,8 +1,8 @@
 class Solution:
-    #   Iterate and increase 'elapsed_time' if
-    #   person still has tickets to purchase
-    #   (tracked by 'cycle'). Return when person
-    #   buys last ticket
+    #   Iterate and increase 'time' if person
+    #   still has tickets to purchase (tracked by
+    #   'cycle'). Return when person buys last
+    #   ticket
     def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
         time = 0
 
